@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lyra"
+version = "0.1.0"
+description = "A Python package for Lyman-alpha Galaxy Inference"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Oscar A. Chavez Ortiz"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+# Dependencies are managed by conda (environment.yml) for better compilation
+# This package only requires setuptools to be installed via: pip install -e .
+dependencies = []
+
+
+[project.urls]
+Homepage = "https://github.com/astrocar09/lyra"
+Issues = "https://github.com/astroscar09/lyra/issues"
+
+[tool.setuptools]
+packages = ["lyra"]
+
+[tool.setuptools.package-data]
+lyra = ["models/*.pkl", "models/*.yaml"]

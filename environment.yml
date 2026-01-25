@@ -1,0 +1,13 @@
+name: lyra_env
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - conda-forge::ipython
+  - conda-forge::sbi
+  - conda-forge::pytorch
+  - conda-forge::cmake
+  - conda-forge::llvm
+  - conda-forge::numpy
+  - conda-forge::pandas
+  - conda-forge::pyyaml

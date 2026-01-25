@@ -1,0 +1,45 @@
+SBI_NPE_metallicity_Av_B_delta_logU_mass_ssfr_beta_Muv_burst:
+  input_features:
+    - metallicity
+    - Av
+    - B
+    - logU
+    - stellar_mass
+    - ssfr
+    - beta
+    - Muv
+    - burst
+  input_dim: 9
+
+SBI_NPE_Av_logU_ssfr_mass_beta_Muv_burst:
+  input_features:
+    - Av
+    - logU
+    - ssfr
+    - stellar_mass
+    - beta
+    - Muv
+    - burst
+  input_dim: 7
+
+SBI_NPE_Av_ssfr_Muv_burst:
+  input_features:
+    - Av
+    - ssfr
+    - Muv
+    - burst
+  input_dim: 4
+
+SBI_NPE_beta_ssfr_Muv_burst:
+  input_features:
+    - beta
+    - ssfr
+    - Muv
+    - burst
+  input_dim: 4
+
+full_SBI_NPE_Muv_beta:
+  input_features:
+    - Muv
+    - beta
+  input_dim: 2
