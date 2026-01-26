@@ -1,4 +1,4 @@
-SBI_NPE_metallicity_Av_B_delta_logU_mass_ssfr_beta_Muv_burst:
+full_SBI_NPE_metallicity_Av_B_delta_logU_mass_ssfr_beta_Muv_burst:
   input_features:
     - metallicity
     - Av
@@ -11,7 +11,7 @@ SBI_NPE_metallicity_Av_B_delta_logU_mass_ssfr_beta_Muv_burst:
     - burst
   input_dim: 9
 
-SBI_NPE_Av_logU_ssfr_mass_beta_Muv_burst:
+full_SBI_NPE_Av_logU_ssfr_mass_beta_Muv_burst:
   input_features:
     - Av
     - logU
@@ -22,15 +22,18 @@ SBI_NPE_Av_logU_ssfr_mass_beta_Muv_burst:
     - burst
   input_dim: 7
 
-SBI_NPE_Av_ssfr_Muv_burst:
+full_SBI_NPE_metallicity_beta_logU_mass_ssfr_Muv_burst:
   input_features:
-    - Av
+    - metallicity
+    - beta
+    - logU 
+    - mass 
     - ssfr
     - Muv
     - burst
-  input_dim: 4
+  input_dim: 7
 
-SBI_NPE_beta_ssfr_Muv_burst:
+full_SBI_NPE_beta_ssfr_Muv_burst:
   input_features:
     - beta
     - ssfr
@@ -38,7 +41,15 @@ SBI_NPE_beta_ssfr_Muv_burst:
     - burst
   input_dim: 4
 
-full_SBI_NPE_Muv_beta:
+  full_SBI_NPE_Muv_mass_beta_ssfr:
+  input_features:
+    - Muv
+    - mass
+    - beta
+    - ssfr
+  input_dim: 4
+
+  full_SBI_NPE_Muv_beta:
   input_features:
     - Muv
     - beta
