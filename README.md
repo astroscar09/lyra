@@ -15,7 +15,7 @@
 - Supports multiple models via simple file input.
 - Generates posterior samples and summary statistics.
 - Includes plotting utilities for visualizing input vs output with uncertainties.
-- Fully pip-installable, no SQL or external database dependencies.
+- Fully pip-installable and uses HuggingFace to store and download the SBI model.
 
 ---
 
