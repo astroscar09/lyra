@@ -34,15 +34,30 @@ conda activate lyra_env
 pip install -e .
 ```
 
-**Important:** Always activate the `lyra_env` conda environment before using Lyra. The `pip install -e .` command must be run while the conda environment is active to ensure all dependencies are properly linked.
+**Important:** 
+
+- Always activate the `lyra_env` conda environment before using Lyra. 
+- The `pip install -e .` command must be run while the conda environment is active to ensure all dependencies are properly linked.
+- The package uses huggingface_hub to download the models to mitigate large files on downloading the package, please set up an environment variable HF_HOME point to the lyra/models/ directory. 
+
+```bash
+Ex: export HF_HOME=/Users/username/Desktop/lyra/lyra/models
+```
+
+Available Models Ready for Download from HuggingFace: 
+
+- full_SBI_NPE_Muv_beta.pkl
+- full_SBI_NPE_beta_ssfr_Muv_burst.pkl
+- full_SBI_NPE_Muv_mass_beta_ssfr.pkl
+- full_SBI_NPE_Av_logU_ssfr_mass_beta_Muv_burst.pkl
+- full_SBI_NPE_metallicity_beta_logU_mass_ssfr_Muv_burst.pkl
+- full_SBI_NPE_metallicity_Av_B_delta_logU_mass_ssfr_beta_Muv_burst.pkl
 
 ### Troubleshooting
 If you encounter issues:
 1. Ensure the conda environment is active: `conda activate lyra_env`
 2. Reinstall if needed: `pip install -e . --force-reinstall`
 3. Verify dependencies: `conda list` (should show torch, sbi, etc.)
-
-
 
 ## Contributing
 

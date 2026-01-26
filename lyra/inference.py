@@ -1,7 +1,7 @@
 from lyra import config
 import torch
 import numpy as np
-from lyra.io_utils import load_trained_model, grab_model_file
+from lyra.io_utils import load_trained_model, grab_model_file, fetch_model
 import pandas as pd
 from lyra.evaluation import sample_from_posterior, grab_percentiles_from_posterior
 from pathlib import Path
@@ -80,9 +80,11 @@ class Lyra():
             FileNotFoundError: If neither the specified model nor default model is found.
         """
         # Get the models directory path using __file__
-        model_dir = Path(__file__).parent / 'models'
-        path = model_dir / file
-        
+        #model_dir = Path(__file__).parent / 'models'
+        #path = model_dir / file
+
+        path = Path(fetch_model(file))
+
         if path.exists():
         
             posterior, _ = load_trained_model(path)

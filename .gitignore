@@ -4,7 +4,10 @@ lyra/models/full_SBI_NPE_metallicity_Av_B_delta_logU_mass_ssfr_beta_Muv_burst.pk
 lyra/models/full_SBI_NPE_metallicity_beta_logU_mass_ssfr_Muv_burst.pkl
 lyra/models/full_SBI_NPE_Muv_mass_beta_ssfr.pkl
 lyra/models/full_SBI_NPE_Muv_beta.pkl
+.hf_token
 
+lyra/test/*
+lyra/models/*
 
 lyra.egg-info/*
 
