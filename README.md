@@ -7,6 +7,33 @@
 
 **Lyra** is a lightweight Python package for performing inference on Lyman-alpha galaxy properties using pre-trained neural density estimators. It allows astronomers and researchers to quickly generate posterior samples and summaries for their datasets with minimal setup.
 
+## Background of Lyra
+
+In astronomy, there is a time in the history of the universe when it underwent a major phase change: the transition from a predominantly neutral universe to a predominantly ionized one. This phase change is called the epoch of reionization (EoR) and is a major topic of study. Knowing the timeline of the EoR can provide clues about the dominant ionizing mechanisms that drove reionization. With our current knowledge, we have a good handle on when reionization ended thanks to the Lyman-alpha forest in quasar spectra; this end is somewhere around a redshift of z ≈ 5.5. However, determining when it started—and its full duration—has been challenging.
+
+Measuring the full duration of the EoR requires estimates of the neutral hydrogen fraction as a function of redshift in order to distinguish between competing reionization models. A common probe used today is the Lyman-alpha emission line due to its hypersensitivity to neutral hydrogen. Lyman-alpha has the unique property that if it encounters a neutral hydrogen atom, it will be absorbed and re-emitted in a random direction. Thus, if we can measure the observed Lyman-alpha emission of galaxies in the EoR and compare that to how much Lyman-alpha they intrinsically emit, we can infer the neutral fraction. However, because of this sensitivity, Lyman-alpha is also affected by internal galaxy dynamics and properties such as dust content and its distribution, making it non-trivial to determine exactly how much Lyman-alpha is being emitted by a galaxy in the EoR.
+
+
+## Methodology
+
+To circumvent this issue, we take thousands of Lyman-alpha emitting galaxies in the post-reionization universe and map galaxy properties to emergent Lyman-alpha emission. The goal is to directly tie Lyman-alpha emission to galactic observables such as stellar mass, dust, M_UV, UV beta slope, and more. A basic rundown of the methodology is as follows:
+
+- Cross-match multiple photometric catalogs to a spectroscopic catalog with millions of entries
+- Run a photometric redshift estimation code to determine the likelihood of each matched source being between redshifts 1.9–3.5; at this step we obtain the redshift probability distribution P(z)
+- Use external information such as other Lyman-alpha likelihood estimates and combine it with the P(z) information to uniquely determine whether a galaxy is a Lyman-alpha emitter
+- Use an SED-fitting code to determine the galaxy properties
+- Lastly, fold the galaxy properties into a normalizing flow framework to map galaxy properties to emergent Lyman-alpha properties
+
+## Skills Used
+
+- Automated ingestion, processing, and cleaning of data
+- Parallel computing on a supercomputing cluster
+- Bayesian analysis and techniques to identify Lyman-alpha emitters
+- Machine Learning validation, inference, and diagnostics using Python
+- Simulation-based inference using PyTorch and normalizing flows on the backend
+- Training conducted at scale using a supercomputing cluster
+
+
 ---
 
 ## Features
