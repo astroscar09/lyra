@@ -17,9 +17,14 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-# Dependencies are managed by conda (environment.yml) for better compilation
-# This package only requires setuptools to be installed via: pip install -e .
-dependencies = []
+dependencies = [
+    "numpy",
+    "pandas",
+    "pyyaml",
+    "torch",
+    "sbi",
+    "huggingface_hub",
+]
 
 
 [project.urls]

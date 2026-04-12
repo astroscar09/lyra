@@ -44,9 +44,39 @@ def load_trained_model(path, map_location="cpu"):
     
     with as_file(path) as f:
         if not f.exists():
-            raise FileNotFoundError(f"Model not found, check filepath: {model_name}")
+            raise FileNotFoundError(f"Model not found, check filepath: {path}")
         posterior, inference = load_inference(f, device=map_location)
         return posterior, inference
+
+
+def load_model(model_name: str):
+    """
+    Fetch and load a pre-trained model by name.
+
+    Downloads from HuggingFace Hub if not cached locally. Falls back to the
+    default model ('full_SBI_NPE_Muv_beta.pkl') if the requested file is not found.
+
+    Args:
+        model_name (str): Filename of the model (e.g., 'full_SBI_NPE_Muv_beta.pkl').
+
+    Returns:
+        posterior: The loaded SBI posterior ready for sampling.
+    """
+    DEFAULT_MODEL = 'full_SBI_NPE_Muv_beta.pkl'
+
+    path = Path(fetch_model(model_name))
+
+    if path.exists():
+        posterior, _ = load_trained_model(path)
+    else:
+        print(f'No model file found at: {path}')
+        print('Defaulting to using the default model')
+        model_dir = Path(__file__).parent / 'models'
+        default_model = model_dir / DEFAULT_MODEL
+        print(f'Defaulting to: {default_model}')
+        posterior, _ = load_trained_model(default_model)
+
+    return posterior
 
 
 def grab_model_file(file):

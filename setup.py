@@ -19,6 +19,7 @@ setup(
         "pyyaml",
         "torch",
         "sbi",
+        "huggingface_hub",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

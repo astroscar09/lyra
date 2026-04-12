@@ -20,3 +20,4 @@ lyra/__pycache__/*
 
 notebooks/sbi-logs/NPE_C/*
 notebooks/sbi-logs/
+sbi-logs/*

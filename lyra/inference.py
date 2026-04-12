@@ -1,7 +1,7 @@
 from lyra import config
 import torch
 import numpy as np
-from lyra.io_utils import load_trained_model, grab_model_file, fetch_model
+from lyra.io_utils import grab_model_file, load_model
 import pandas as pd
 from lyra.evaluation import sample_from_posterior, grab_percentiles_from_posterior
 from pathlib import Path
@@ -67,39 +67,15 @@ class Lyra():
 
     def grab_model(self, file):
         """
-        Load a pre-trained model from the models directory.
-        
+        Load a pre-trained model by delegating to io_utils.load_model.
+
         Args:
             file (str): Filename of the model pickle file.
-        
+
         Returns:
-            None: Sets self.posterior with the loaded model. Falls back to default
-                  model if file is not found.
-        
-        Raises:
-            FileNotFoundError: If neither the specified model nor default model is found.
+            None: Sets self.posterior with the loaded model.
         """
-        # Get the models directory path using __file__
-        #model_dir = Path(__file__).parent / 'models'
-        #path = model_dir / file
-
-        path = Path(fetch_model(file))
-
-        if path.exists():
-        
-            posterior, _ = load_trained_model(path)
-    
-        else:
-            print(f'No model file found at: {path}')
-            print('Defaulting to using the default model')
-            
-            default_model = model_dir / 'full_SBI_NPE_Muv_beta.pkl'
-            print(f'Defaulting to: {default_model}')
-            
-            posterior, _ = load_trained_model(default_model)
-
-        config.DEVICE = 'cpu'
-        self.posterior = posterior
+        self.posterior = load_model(file)
     
     def check_model_is_loaded(self):
         """

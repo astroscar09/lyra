@@ -28,4 +28,4 @@ def grab_percentiles_from_posterior(samples):
 
 def posterior_mean(posterior, x, n=1000):
     samples = sample_from_posterior(posterior, x, num_samples=n)
-    return samples.mean(dim=0)
+    return samples.mean(dim=1)

@@ -41,7 +41,7 @@ full_SBI_NPE_beta_ssfr_Muv_burst:
     - burst
   input_dim: 4
 
-  full_SBI_NPE_Muv_mass_beta_ssfr:
+full_SBI_NPE_Muv_mass_beta_ssfr:
   input_features:
     - Muv
     - mass
@@ -49,7 +49,7 @@ full_SBI_NPE_beta_ssfr_Muv_burst:
     - ssfr
   input_dim: 4
 
-  full_SBI_NPE_Muv_beta:
+full_SBI_NPE_Muv_beta:
   input_features:
     - Muv
     - beta
