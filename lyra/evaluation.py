@@ -1,15 +1,6 @@
 # evaluation.py
 import numpy as np
-import torch
-
-def to_cpu(x):
-    if torch.is_tensor(x):
-        return x.detach().cpu()
-    return x
-
-def build_posterior(inference):
-    return inference.build_posterior()
-
+from lyra import config
 
 def sample_from_posterior(posterior, x_obs_tensor, num_samples = 1000):
 
@@ -21,7 +12,7 @@ def sample_from_posterior(posterior, x_obs_tensor, num_samples = 1000):
 
 def grab_percentiles_from_posterior(samples):
 
-    l2pt5, l16, med, u84, u97pt5 = np.percentile(samples, q = (2.5, 16, 50, 84, 97.5), axis = 1)
+    l2pt5, l16, med, u84, u97pt5 = np.percentile(samples, q=config.PERCENTILES, axis=1)
 
     return l2pt5, l16, med, u84, u97pt5
 

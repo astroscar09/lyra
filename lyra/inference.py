@@ -176,11 +176,7 @@ class Lyra():
         """
         l2pt5, l16, med, u84, u97pt5 = grab_percentiles_from_posterior(samples)
     
-        percentile_data = {'2.5':  l2pt5, 
-                           '16':   l16, 
-                           '50':   med, 
-                           '84':   u84, 
-                           '97.5': u97pt5}
+        percentile_data = dict(zip(config.PERCENTILE_NAMES, [l2pt5, l16, med, u84, u97pt5]))
 
         summary_df = pd.DataFrame(percentile_data)
         
@@ -312,6 +308,6 @@ class Lyra():
         
         if data.shape[1] != expected_dim:
             raise ValueError(
-                              f"Expected input dim {expected_dim}, got {data.shape[1]}. Plase check input data.#"
-                            )
+                f"Expected input dim {expected_dim}, got {data.shape[1]}. Please check input data."
+            )
 
