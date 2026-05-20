@@ -20,6 +20,9 @@ setup(
         "torch",
         "sbi",
         "huggingface_hub",
+        "scipy",
+        "scikit-learn",
+        "astropy",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
